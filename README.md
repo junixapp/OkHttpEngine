@@ -39,6 +39,13 @@ A simple wrapper for OkHttp!
                        }
                    });
 
+- add header
+
+		OkHttpEngine.create()
+                    .addHeader("a","b")
+                    .addHeader("a","b")
+                    .get("url",null);
+
 # Depedency
 [![](https://jitpack.io/v/li-xiaojun/OkHttpEngine.svg)](https://jitpack.io/#li-xiaojun/OkHttpEngine)
 
