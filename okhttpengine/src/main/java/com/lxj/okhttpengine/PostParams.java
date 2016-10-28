@@ -11,11 +11,13 @@ import java.util.Set;
  */
 public class PostParams {
     private HashMap<String,Object> map = new HashMap<>();
-    public void add(String key,String value){
+    public PostParams add(String key,String value){
         map.put(key,value);
+        return this;
     }
-    public void add(String key, File file){
+    public PostParams add(String key, File file){
         map.put(key,file);
+        return this;
     }
 
     public boolean isMultipart(){
