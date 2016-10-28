@@ -5,12 +5,13 @@ A simple wrapper for OkHttp!
 - fluent api
 - get/post request
 - multipart body
+- support parse json to pojo
 
 # Usage
 - get请求
 
 		 OkHttpEngine.create()
-                    .get("url", new OkHttpEngine.OkHttpCallback() {
+                    .get("url", new OkHttpCallback<String>() {
                         @Override
                         public void onSuccess(String result) {
                             
@@ -24,20 +25,30 @@ A simple wrapper for OkHttp!
 - post请求
 
 		PostParams params = new PostParams();
-        params.add("key","value");
-        params.add("file",new File("a.jpg"));
+        params.add("key","value")
+              .add("file",new File("path"));
         OkHttpEngine.create()
-                   .post("url", params, new OkHttpEngine.OkHttpCallback() {
-                       @Override
-                       public void onSuccess(String result) {
+			        .post("url",params,new OkHttpCallback<String>(){
+            @Override
+            public void onSuccess(String result) {
+			}
+            @Override
+            public void onFail(IOException e) {
+			}
+        });
 
-                       }
+- parse json to pojo
 
-                       @Override
-                       public void onFail(IOException e) {
+		OkHttpEngine.create()
+			        .post("url",params,new OkHttpCallback<Bean>(){
+            @Override
+            public void onSuccess(Bean result) {
+			}
+            @Override
+            public void onFail(IOException e) {
+			}
+        });
 
-                       }
-                   });
 
 - add header
 
@@ -62,7 +73,7 @@ A simple wrapper for OkHttp!
 2. Add the dependency
 
 		dependencies {
-		        compile 'com.github.li-xiaojun:OkHttpEngine:1.0'
+		        compile 'com.github.li-xiaojun:OkHttpEngine:1.1'
 		}
 
 	
