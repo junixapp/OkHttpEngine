@@ -73,7 +73,7 @@ A simple wrapper for OkHttp!
 2. Add the dependency
 
 		dependencies {
-		        compile 'com.github.li-xiaojun:OkHttpEngine:1.1'
+		        compile 'com.github.li-xiaojun:OkHttpEngine:1.2'
 		}
 
 	
